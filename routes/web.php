@@ -17,4 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('book', 'BookController@book');
+
+Route::get('bookall', 'BookController@bookAuth')->middleware('jwt.verify');
+
+Route::post('/register', 'UserController@register');
+
+Route::post('/login', 'UserController@login')->name('login');
+
+Route::get('/gotologin', 'UserController@gotologin')->name('gotologin');
+
 Route::get('/home', 'HomeController@index')->name('home');
